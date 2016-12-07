@@ -53,7 +53,6 @@ void ACubiquityOctreeNode::Destroyed()
 void ACubiquityOctreeNode::initialiseOctreeNode(const Cubiquity::OctreeNode& newOctreeNode, UMaterialInterface* material)
 {
 	AttachRootComponentToActor(GetOwner());
-	//AttachToActor(GetOwner(), FAttachmentTransformRules::bWeldSimulatedBodies, NAME_None);
 
 	//UE_LOG(CubiquityLog, Log, TEXT("%d My absolute: %d %d %d     Parent absolute: %d %d %d     Relative: %d %d %d"), depth, nodeX, nodeY, nodeZ, parentX, parentY, parentZ, nodeX - parentX, nodeY - parentY, nodeZ - parentZ);
 	

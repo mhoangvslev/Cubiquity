@@ -10,7 +10,7 @@
 ACubiquityColoredCubesVolume::ACubiquityColoredCubesVolume(const FObjectInitializer& PCIP)
 	: Super(PCIP)
 {
-	volumeFileName = "D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/example-vdb/VoxeliensTerrain.vdb";
+	volumeFileName = "D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/Dependencies/example-vdb/VoxeliensTerrain.vdb";
 }
 
 void ACubiquityColoredCubesVolume::PostActorCreated()
@@ -38,6 +38,36 @@ void ACubiquityColoredCubesVolume::loadVolume()
 {
 	m_volume = loadVolumeImpl<Cubiquity::ColoredCubesVolume>();
 }
+
+/*void ACubiquityColoredCubesVolume::pickFirstSolidVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
+{
+	auto ex_hitLocation = m_volume->pickFirstSolidVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
+
+	if (!success)
+	{
+		UE_LOG(CubiquityLog, Log, TEXT("Surface pick found nothing"));
+        hitLocation = FVector::ZeroVector;
+	}
+    else
+    {
+        hitLocation = FVector(ex_hitLocation.x, ex_hitLocation.y, ex_hitLocation.z);
+    }
+}*/
+
+/*void ACubiquityColoredCubesVolume::pickLastEmptyVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
+{
+	auto ex_hitLocation = m_volume->pickLastEmptyVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
+
+	if (!success)
+	{
+		UE_LOG(CubiquityLog, Log, TEXT("Surface pick found nothing"));
+        hitLocation = FVector::ZeroVector;
+	}
+    else
+    {
+        hitLocation = FVector(ex_hitLocation.x, ex_hitLocation.y, ex_hitLocation.z);
+    }
+}*/
 
 FVector ACubiquityColoredCubesVolume::pickFirstSolidVoxel(FVector localStartPosition, FVector localDirection) const
 {

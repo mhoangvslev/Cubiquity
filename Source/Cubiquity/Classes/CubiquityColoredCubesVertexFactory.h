@@ -19,7 +19,6 @@ struct FColoredCubesVertex
 
 	FColoredCubesVertex(const FDynamicMeshVertex& other) :
 		Position(other.Position),
-		//Color(other.Position)
 		Color(other.Color)
 	{}
 
@@ -85,7 +84,7 @@ public:
 	FColoredCubesVertexFactory()
 	{}
 
-	struct FDataType : public FLocalVertexFactory::FDataType
+	struct DataType : public FLocalVertexFactory::DataType
 	{
 		FVertexStreamComponent PositionComponent;
 		FVertexStreamComponent ColorComponent;
@@ -97,7 +96,7 @@ public:
 	/**
 	* An implementation of the interface used by TSynchronizedResource to update the resource with new data from the game thread.
 	*/
-	void SetData(const FDataType& InData);
+	void SetData(const DataType& InData);
 
 	void InitRHI() override;
 
@@ -109,7 +108,7 @@ public:
 	static bool ShouldCache(EShaderPlatform Platform, const class FMaterial* Material, const class FShaderType* ShaderType);
 
 protected:
-	FDataType Data;
+	DataType Data;
 };
 
 
@@ -126,7 +125,7 @@ public:
 
 	virtual void GetDynamicMeshElements(const TArray<const FSceneView*>& Views, const FSceneViewFamily& ViewFamily, uint32 VisibilityMap, FMeshElementCollector& Collector) const override;
 
-	virtual FPrimitiveViewRelevance GetViewRelevance(const FSceneView* View);
+	virtual FPrimitiveViewRelevance GetViewRelevance(const FSceneView* View) const override;
 
 	virtual bool CanBeOccluded() const override { return !MaterialRelevance.bDisableDepthTest; };
 

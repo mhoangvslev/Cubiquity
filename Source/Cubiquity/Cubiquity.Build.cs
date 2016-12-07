@@ -12,7 +12,7 @@ public class Cubiquity : ModuleRules
 
     private string ThirdPartyPath
     {
-        get { return Path.GetFullPath("D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/"); } //Edit this line to match where Cubiquity is installed
+        get { return Path.GetFullPath("D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/Dependencies"); } //Edit this line to match where Cubiquity is installed
     }
 
     private string ThirdPartyLibraryPath
@@ -51,9 +51,7 @@ public class Cubiquity : ModuleRules
             FileInfo file = new FileInfo(Path.Combine(ThirdPartyLibraryPath, "CubiquityC.dll"));
             DirectoryInfo destDir = new DirectoryInfo(Path.Combine(ModulePath, "..", "..", "Binaries", PlatformString));
             destDir.Create();
-            var destPath = Path.Combine(ModulePath, "..", "..", "Binaries", PlatformString);
-            Directory.CreateDirectory(destPath);
-            FileInfo destFile = new FileInfo(Path.Combine(destPath, "CubiquityC.dll"));
+            FileInfo destFile = new FileInfo(Path.Combine(destDir.ToString(), "CubiquityC.dll"));
             if (destFile.Exists)
             {
                 if (file.LastWriteTime > destFile.LastWriteTime)

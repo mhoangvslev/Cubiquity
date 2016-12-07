@@ -44,7 +44,7 @@ void FColoredCubesVertexFactory::Init(const FColoredCubesVertexBuffer* VertexBuf
 		const FColoredCubesVertexBuffer*, VertexBuffer, VertexBuffer,
 		{
 		// Initialize the vertex factory's stream components.
-		FDataType NewData;
+		DataType NewData;
 		NewData.PositionComponent = STRUCTMEMBER_VERTEXSTREAMCOMPONENT(VertexBuffer, FColoredCubesVertex, Position, VET_Float3);
 		NewData.ColorComponent = STRUCTMEMBER_VERTEXSTREAMCOMPONENT(VertexBuffer, FColoredCubesVertex, Color, VET_Color);
 		VertexFactory->SetData(NewData);
@@ -61,13 +61,12 @@ void FColoredCubesVertexFactory::InitRHI()
 
 	check(Streams.Num() > 0);
 
-	//InitDeclaration(Elements, Data);
 	InitDeclaration(Elements);
 
 	check(IsValidRef(GetDeclaration()));
 }
 
-void FColoredCubesVertexFactory::SetData(const FDataType& InData)
+void FColoredCubesVertexFactory::SetData(const DataType& InData)
 {
 	check(IsInRenderingThread());
 	Data = InData;
@@ -181,7 +180,7 @@ void FColoredCubesSceneProxy::GetDynamicMeshElements(const TArray<const FSceneVi
 	}
 }
 
-FPrimitiveViewRelevance FColoredCubesSceneProxy::GetViewRelevance(const FSceneView* View)
+FPrimitiveViewRelevance FColoredCubesSceneProxy::GetViewRelevance(const FSceneView* View) const
 {
 	FPrimitiveViewRelevance Result;
 	Result.bDrawRelevance = IsShown(View);

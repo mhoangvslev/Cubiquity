@@ -11,7 +11,7 @@
 ACubiquityTerrainVolume::ACubiquityTerrainVolume(const FObjectInitializer& PCIP)
 	: Super(PCIP)
 {
-	volumeFileName = TEXT("D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/example-vdb/SmoothVoxeliensTerrain.vdb");
+	volumeFileName = TEXT("D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/Dependencies/example-vdb/SmoothVoxeliensTerrain.vdb");
 }
 
 void ACubiquityTerrainVolume::PostActorCreated()
@@ -67,5 +67,7 @@ void ACubiquityTerrainVolume::setVoxel(FVector position, const UCubiquityMateria
 UCubiquityMaterialSet* ACubiquityTerrainVolume::getVoxel(FVector position) const
 {
 	const auto& voxel = m_volume->getVoxel({ (int32_t)position.X, (int32_t)position.Y, (int32_t)position.Z });
-	return new UCubiquityMaterialSet(voxel);
+	auto materialSet = NewObject<UCubiquityMaterialSet>();
+	materialSet->m_materialSet = voxel;
+	return materialSet;
 }
