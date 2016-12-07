@@ -1,2 +1,0 @@
-# Cubiquity
-Cubiquity is originally made by David Williams and Matt Williams (http://www.volumesoffun.com/about-us/) for previous version of Unreal Engine 4. It was never released officially and it is still in development. The developers are making Cubiquity 2 and hopefully it will see daylight.  I made a port for recent version Unreal Engine 4 so the community can profit from this marvelous piece of work.

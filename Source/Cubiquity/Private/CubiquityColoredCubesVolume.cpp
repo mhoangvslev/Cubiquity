@@ -39,7 +39,7 @@ void ACubiquityColoredCubesVolume::loadVolume()
 	m_volume = loadVolumeImpl<Cubiquity::ColoredCubesVolume>();
 }
 
-/*void ACubiquityColoredCubesVolume::pickFirstSolidVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
+void ACubiquityColoredCubesVolume::pickFirstSolidVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
 {
 	auto ex_hitLocation = m_volume->pickFirstSolidVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
 
@@ -52,9 +52,9 @@ void ACubiquityColoredCubesVolume::loadVolume()
     {
         hitLocation = FVector(ex_hitLocation.x, ex_hitLocation.y, ex_hitLocation.z);
     }
-}*/
+}
 
-/*void ACubiquityColoredCubesVolume::pickLastEmptyVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
+void ACubiquityColoredCubesVolume::pickLastEmptyVoxel(const FVector& localStartPosition, const FVector& localDirection, bool& success, FVector& hitLocation) const
 {
 	auto ex_hitLocation = m_volume->pickLastEmptyVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
 
@@ -67,34 +67,6 @@ void ACubiquityColoredCubesVolume::loadVolume()
     {
         hitLocation = FVector(ex_hitLocation.x, ex_hitLocation.y, ex_hitLocation.z);
     }
-}*/
-
-FVector ACubiquityColoredCubesVolume::pickFirstSolidVoxel(FVector localStartPosition, FVector localDirection) const
-{
-	bool success;
-	auto hitLocation = m_volume->pickFirstSolidVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
-
-	if (!success)
-	{
-		UE_LOG(CubiquityLog, Log, TEXT("Surface pick found nothing"));
-		return FVector::ZeroVector;
-	}
-
-	return FVector(hitLocation.x, hitLocation.y, hitLocation.z);
-}
-
-FVector ACubiquityColoredCubesVolume::pickLastEmptyVoxel(FVector localStartPosition, FVector localDirection) const
-{
-	bool success;
-	auto hitLocation = m_volume->pickLastEmptyVoxel({ localStartPosition.X, localStartPosition.Y, localStartPosition.Z }, { localDirection.X, localDirection.Y, localDirection.Z }, &success);
-
-	if (!success)
-	{
-		UE_LOG(CubiquityLog, Log, TEXT("Surface pick found nothing"));
-		return FVector::ZeroVector;
-	}
-
-	return FVector(hitLocation.x, hitLocation.y, hitLocation.z);
 }
 
 void ACubiquityColoredCubesVolume::setVoxel(FVector position, FColor newColor)

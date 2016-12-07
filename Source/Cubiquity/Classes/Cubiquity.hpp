@@ -153,7 +153,7 @@ namespace Cubiquity
 
 		Vector<uint8_t> encodedPos() const { return{ m_vertex.encodedPosX, m_vertex.encodedPosY, m_vertex.encodedPosZ }; }
 
-		Vector<float> position() const { return{ (float)(m_vertex.encodedPosX - 0.5f), (float)(m_vertex.encodedPosY - 0.5f), (float)(m_vertex.encodedPosZ - 0.5f) }; }
+		Vector<float> position() const { return{ m_vertex.encodedPosX - 0.5f, m_vertex.encodedPosY - 0.5f, m_vertex.encodedPosZ - 0.5f }; }
 
 		Color color() const { return{ m_vertex.data }; };
 
@@ -174,7 +174,7 @@ namespace Cubiquity
 
 		uint16_t encodedNormal() const { return{ m_vertex.encodedNormal }; }
 
-		Vector<float> position() const { return{ (float)(1.0 / 256.0) * m_vertex.encodedPosX, (float)(1.0 / 256.0) * m_vertex.encodedPosY, (float)(1.0 / 256.0) * m_vertex.encodedPosZ }; }
+		Vector<float> position() const { return{ (1.0f / 256.0f) * m_vertex.encodedPosX, (1.0f / 256.0f) * m_vertex.encodedPosY, (1.0f / 256.0f) * m_vertex.encodedPosZ }; }
 
 		Vector<float> normal() const
 		{
