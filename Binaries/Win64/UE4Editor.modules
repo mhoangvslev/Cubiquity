@@ -1,9 +1,0 @@
-{
-	"Changelist" : 3195953,
-	"CompatibleChangelist" : 0,
-	"BuildId" : "",
-	"Modules" : 
-	{
-		"Cubiquity" : "UE4Editor-Cubiquity.dll"
-	}
-}
