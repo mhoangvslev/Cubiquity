@@ -11,6 +11,7 @@ ACubiquityColoredCubesVolume::ACubiquityColoredCubesVolume(const FObjectInitiali
 	: Super(PCIP)
 {
 	volumeFileName = "D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/Dependencies/example-vdb/VoxeliensTerrain.vdb";
+	//static ConstructorHelpers::FObjectFinder<ACubiquityColoredCubesVolume> CubiquityColoredCubesVolume(TEXT("CubiquityColeredCubesVolume'/Cubiquity/CubiquityColoredCubes.CubiquityColoredCubes'"));
 }
 
 void ACubiquityColoredCubesVolume::PostActorCreated()

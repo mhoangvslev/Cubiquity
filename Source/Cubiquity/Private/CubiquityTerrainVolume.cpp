@@ -12,6 +12,7 @@ ACubiquityTerrainVolume::ACubiquityTerrainVolume(const FObjectInitializer& PCIP)
 	: Super(PCIP)
 {
 	volumeFileName = TEXT("D:/Unreal Projects/FPSTemplate/Plugins/Cubiquity/Dependencies/example-vdb/SmoothVoxeliensTerrain.vdb");
+	//static ConstructorHelpers::FObjectFinder<ACubiquityTerrainVolume> CubiquityColoredCubesVolume(TEXT("CubiquityTerrainVolume'/Cubiquity/CubiquityTerrain.CubiquityTerrain'"));
 }
 
 void ACubiquityTerrainVolume::PostActorCreated()
