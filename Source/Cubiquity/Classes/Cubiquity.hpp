@@ -18,7 +18,7 @@ namespace
 			ss << cuGetErrorCodeAsString(returnCode) << " : " << cuGetLastErrorMessage();
 			std::string errorString(ss.str());
 			throw std::runtime_error(errorString); //TODO throw correct exception type where possible
-			//exit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 	}
 }
